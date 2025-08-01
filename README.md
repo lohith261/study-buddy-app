@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# StudyBuddy - AI Learning Partner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![StudyBuddy Screenshot](https://ibb.co/N6MHDk3w)
 
-Currently, two official plugins are available:
+**Live Demo:** [https://study-buddy-ai-app.netlify.app/](https://study-buddy-ai-app.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
 
-## Expanding the ESLint configuration
+StudyBuddy is an interactive web application designed to help students with their studies. It acts as a personal AI tutor that makes the learning process engaging and effective. Users can paste their study notes, and the application will generate questions based on that content. The student can answer verbally, and the AI will evaluate their response and provide constructive feedback.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project demonstrates the power of active recall and personalized feedback, which are proven techniques for learning and information retention.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Key Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **AI-Powered Question Generation**: Utilizes Google's Gemini model to generate relevant questions from any given text.
+- **Voice-to-Text Transcription**: Uses the Web Speech API to capture and transcribe the user's spoken answers.
+- **Intelligent Answer Evaluation**: Analyzes the accuracy of the student's answer and provides encouraging, constructive feedback for improvement.
+- **Text-to-Speech**: Reads the AI's feedback aloud for a fully interactive experience.
+- **Modern & Responsive Design**: Built with React and Tailwind CSS for a seamless experience on all devices.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technology Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend**: React, Vite, Tailwind CSS
+- **AI & Machine Learning**: Google Gemini API
+- **Web APIs**: Web Speech API (SpeechRecognition), Web Speech API (SpeechSynthesis)
+- **Deployment**: Netlify
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Local Setup and Installation
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To run this project on your local machine, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/lohith261/study-buddy-app.git](https://github.com/lohith261/study-buddy-app.git)
+    cd study-buddy-app
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    -   Create a file named `.env.local` in the root of the project.
+    -   Add your Google Gemini API key in the following format:
+        ```
+        VITE_GEMINI_API_KEY=YOUR_ACTUAL_API_KEY_GOES_HERE
+        ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+## Deployment
+
+This project is configured for continuous deployment on Netlify. Any push to the `main` branch will automatically trigger a new build and deployment.
+
+To deploy on Netlify, ensure you set the following environment variable in your site settings:
+- **Key**: `VITE_GEMINI_API_KEY`
+- **Value**: Your Google Gemini API Key
+
+---
