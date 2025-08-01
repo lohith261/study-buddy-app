@@ -70,7 +70,15 @@ export default function App() {
 
     // --- API Communication ---
     const callGemini = useCallback(async (chatHistory, responseSchema = null) => {
-        const apiKey = ""; // Leave empty, handled by the environment
+        // *** THIS IS THE IMPORTANT CHANGE ***
+        // It now reads the API key from your environment variables
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+        if (!apiKey) {
+            setError("API Key is missing. Please add it to your .env.local file.");
+            return;
+        }
+
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         
         const payload = { contents: chatHistory };
