@@ -70,12 +70,10 @@ export default function App() {
 
     // --- API Communication ---
     const callGemini = useCallback(async (chatHistory, responseSchema = null) => {
-        // *** THIS IS THE IMPORTANT CHANGE ***
-        // It now reads the API key from your environment variables
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
         if (!apiKey) {
-            setError("API Key is missing. Please add it to your .env.local file.");
+            setError("API Key is missing. Please add it to your .env.local file or Netlify environment variables.");
             return;
         }
 
