@@ -2,7 +2,7 @@
 
 ![StudyBuddy Screenshot](https://ibb.co/N6MHDk3w)
 
-**Live Demo:** [https://study-buddy-ai-app.netlify.app/](https://study-buddy-ai-app.netlify.app/)
+**Live Demo:** [https://study-buddy-ai-app-net.netlify.app/](https://study-buddy-ai-app-net.netlify.app/)
 
 ## Introduction
 
